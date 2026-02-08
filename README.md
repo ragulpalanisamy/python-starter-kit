@@ -13,21 +13,19 @@ A beginner-friendly Python starter kit for learning and practicing Python progra
 
 ```
 python-starter-kit/
-├── starter_kit/           # Your Python code
-│   ├── __init__.py       # Makes it a package
-│   └── operations.py     # Math operations
-├── tests/                # Test your code
-│   └── test_operations.py
+├── starter_kit/           # Basic Python learning
+│   ├── __init__.py
+│   └── operations.py
+├── fastapi-starter/       # FastAPI REST API project
+│   ├── app/              # Application code
+│   ├── tests/            # API tests
+│   └── pyproject.toml    # Dependencies
+├── architecture/         # Learning resources
+│   ├── python-basics/    # Python fundamentals
+│   └── fastapi-rest-api/ # FastAPI architecture
+├── tests/                # Tests for starter_kit
 ├── examples/             # Example scripts
-│   └── basic_operations.py
-├── architecture/         # Learn how Python works
-│   ├── index.md
-│   ├── architecture.png
-│   └── platform.png
-├── .gitignore           # Git ignore rules
-├── requirements.txt     # Dependencies
-├── LICENSE             # MIT License
-└── README.md          # This file
+└── README.md            # This file
 ```
 
 ---
@@ -90,23 +88,43 @@ print(multiply(4, 7))   # Output: 28
 
 ### `architecture/` - Learn Python Internals
 
-- Visual guides explaining how Python executes code
-- Platform independence diagrams
+- **`python-basics/`** - Visual guides explaining how Python executes code
+- **`fastapi-rest-api/`** - FastAPI architecture and REST API concepts
 - Great for understanding what happens behind the scenes!
+
+### `fastapi-starter/` - Production-Ready API
+
+- **Modern FastAPI REST API** with clean architecture
+- Routes → Controllers → Services → Helpers pattern
+- External API integration examples
+- Auto-generated API documentation
+- See `fastapi-starter/README.md` for details
 
 ---
 
 ## 🎓 Learning Path
 
-1. **Read the architecture docs** → `architecture/index.md`
+### Beginner: Python Basics
+
+1. **Read the architecture docs** → `architecture/python-basics/index.md`
 2. **Study the code** → `starter_kit/operations.py`
 3. **Run the example** → `python examples/basic_operations.py`
 4. **Try writing your own function** → Add to `starter_kit/operations.py`
 5. **Write tests** → Add to `tests/test_operations.py`
 
+### Intermediate: FastAPI REST API
+
+1. **Read FastAPI architecture** → `architecture/fastapi-rest-api/index.md`
+2. **Explore the project** → `cd fastapi-starter`
+3. **Run the API** → `uv run uvicorn app.main:app --reload`
+4. **Try the API docs** → http://localhost:8000/docs
+5. **Build your own endpoints** → Follow the patterns in `app/routes/`
+
 ---
 
 ## 💡 Key Concepts Demonstrated
+
+### Python Basics (`starter_kit/`)
 
 ✅ **Project Organization** - Clean folder structure  
 ✅ **Functions** - Reusable code blocks  
@@ -116,9 +134,39 @@ print(multiply(4, 7))   # Output: 28
 ✅ **Imports** - Use code from other files  
 ✅ **Virtual Environments** - Isolated dependencies
 
+### FastAPI REST API (`fastapi-starter/`)
+
+✅ **REST API** - Modern web service architecture  
+✅ **Async/Await** - Non-blocking I/O operations  
+✅ **Clean Architecture** - Separation of concerns  
+✅ **Auto Documentation** - Swagger UI at `/docs`  
+✅ **Type Safety** - Pydantic validation  
+✅ **External APIs** - Integration examples  
+✅ **UV Package Manager** - Modern Python tooling
+
+---
+
+## 📦 Projects Included
+
+### 1. **starter_kit/** - Python Basics
+
+Simple Python package for learning fundamentals
+
+### 2. **fastapi-starter/** - REST API
+
+Production-ready FastAPI application with:
+
+- Health check endpoints
+- External API integration (JSONPlaceholder, Open-Meteo)
+- Clean architecture pattern
+- Comprehensive tests
+- Auto-generated documentation
+
 ---
 
 ## 🔧 Common Commands
+
+### Python Basics
 
 ```bash
 # Activate virtual environment
@@ -136,6 +184,25 @@ python
 >>> from starter_kit.operations import add
 >>> add(5, 3)
 8
+```
+
+### FastAPI Project
+
+```bash
+# Navigate to project
+cd fastapi-starter
+
+# Install dependencies
+uv sync
+
+# Run development server
+uv run uvicorn app.main:app --reload
+
+# Access API documentation
+# Open http://localhost:8000/docs in browser
+
+# Run tests
+uv run pytest
 ```
 
 ---
