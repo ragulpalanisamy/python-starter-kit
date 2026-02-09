@@ -6,6 +6,10 @@ This document explains the architecture of modern Python REST APIs using FastAPI
 
 ---
 
+## 🖼️ Visual Architecture
+
+![Nodejs vs Fast API Architecture](image.png)
+
 ## What is a REST API?
 
 **REST** (Representational State Transfer) is an architectural style for building web services.
