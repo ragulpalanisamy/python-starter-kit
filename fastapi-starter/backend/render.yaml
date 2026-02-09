@@ -6,7 +6,7 @@ services:
     plan: free # Change to starter if ML dependencies cause issues
     runtime: python
     rootDir: fastapi-starter/backend
-    buildCommand: pip install uv && uv sync --frozen
+    buildCommand: pip install uv && uv sync
     startCommand: uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
