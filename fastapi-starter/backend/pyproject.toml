@@ -1,0 +1,57 @@
+# Modern Python project configuration using UV package manager
+# This replaces the traditional requirements.txt approach
+
+[project]
+name = "fastapi-ml-starter"
+version = "1.0.0"
+description = "Modern Python FastAPI project with external API integration"
+authors = [
+    {name = "Ragul Palanisamy"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+
+# Core dependencies - these are the packages your project needs to run
+dependencies = [
+    "fastapi>=0.115.6",        # Modern web framework for building APIs
+    "uvicorn[standard]>=0.34.0",  # ASGI server to run FastAPI
+    "pydantic>=2.10.5",         # Data validation using Python type hints
+    "pydantic-settings>=2.7.1", # Settings management with environment variables
+    "httpx>=0.28.1",           # Async HTTP client for calling external APIs
+    "motor>=3.6.0",            # Async MongoDB driver
+    "python-dotenv>=1.0.0",    # Load environment variables from .env file
+    "python-multipart>=0.0.6", # For form data and file uploads
+    "torch>=2.10.0",
+    "transformers>=5.1.0",
+    "pydantic-core>=2.41.5",
+    "torchvision>=0.25.0",
+    "torchaudio>=2.10.0",
+]
+
+# Development dependencies - only needed during development
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",           # Testing framework
+    "pytest-asyncio>=0.21.0",  # Async support for pytest
+    "httpx>=0.26.0",           # For testing HTTP requests
+    "ruff>=0.1.0",             # Fast Python linter and formatter
+]
+
+# Build system configuration - tells UV how to build the project
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+# Hatchling build configuration - specifies which packages to include
+[tool.hatch.build.targets.wheel]
+packages = ["app"]
+
+# Ruff configuration for code quality
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+# Pytest configuration
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]

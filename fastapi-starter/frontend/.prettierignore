@@ -1,0 +1,44 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Build outputs
+dist
+build
+.next
+out
+
+# Cache
+.cache
+.vite
+.turbo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.min.js
+*.min.css
+
+# Coverage
+coverage
+.nyc_output
+
+# Misc
+*.tsbuildinfo
