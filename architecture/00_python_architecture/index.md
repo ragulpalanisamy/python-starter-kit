@@ -1,32 +1,3 @@
-# 🎓 Python Learning Path
-
-> **Welcome to the Python Starter Kit!** This guide is organized sequentially to take you from basics to advanced concepts. Follow the sequence below for the best learning experience.
-
----
-
-## 🚀 Learning Sequence
-
-| Step | Topic                   | 📖 Documentation                               | 💻 Code Examples                                      |
-| :--- | :---------------------- | :--------------------------------------------- | :---------------------------------------------------- |
-| 00   | **Python Architecture** | [Read Below](#python-architecture)             | -                                                     |
-| 01   | **Operators**           | [View Guide](./01_operators/index.md)          | [Explore Code](../starter_kit/01_operators/)          |
-| 02   | **Strings**             | [View Guide](./02_strings/index.md)            | [Explore Code](../starter_kit/02_strings/)            |
-| 03   | **Type Casting**        | [View Guide](./03_type_check_casting/index.md) | [Explore Code](../starter_kit/03_type_check_casting/) |
-| 04   | **User Input**          | [View Guide](./04_input/index.md)              | [Explore Code](../starter_kit/04_input/)              |
-| 05   | **Variable Scope**      | [View Guide](./05_variable_scope/index.md)     | [Explore Code](../starter_kit/05_variable_scope/)     |
-| 06   | **Control Flow**        | [View Guide](./06_control_flow/index.md)       | [Explore Code](../starter_kit/06_control_flow/)       |
-| 07   | **Functions**           | [View Guide](./07_functions/index.md)          | [Explore Code](../starter_kit/07_functions/)          |
-| 08   | **Data Structures**     | [View Guide](./08_data_structures/index.md)    | [Explore Code](../starter_kit/08_data_structures/)    |
-| 09   | **OOP Concepts**        | [View Guide](./09_oop/index.md)                | [Explore Code](../starter_kit/09_oop/)                |
-| 10   | **File Handling**       | [View Guide](./10_file_handling/index.md)      | [Explore Code](../starter_kit/10_file_handling/)      |
-| 11   | **Exception Handling**  | [View Guide](./11_exception_handling/index.md) | [Explore Code](../starter_kit/11_exception_handling/) |
-| 12   | **PEP-8 Style Guide**   | [View Guide](./12_pep8/index.md)               | -                                                     |
-| 13   | **FastAPI REST API**    | [View Guide](./13_fastapi_rest_api/index.md)   | [Explore Code](../fastapi-starter/)                   |
-
----
-
-<div id="python-architecture"></div>
-
 # 🐍 Python Architecture
 
 > **How Python runs your code** - explained visually
@@ -99,7 +70,7 @@
 
 ## 🖼️ Visual Architecture
 
-![Python Architecture Diagram](./00_python_architecture/architecture.png)
+![Python Architecture Diagram](architecture.png)
 
 ### Legend
 
@@ -139,7 +110,7 @@
 
 **Write Once, Run Anywhere!**
 
-![Platform Independence](./00_python_architecture/platform.png)
+![Platform Independence](platform.png)
 
 ### How It Works
 
