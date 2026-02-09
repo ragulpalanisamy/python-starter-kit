@@ -1,9 +1,6 @@
-"""ML Service for sentiment analysis using PyTorch and Transformers."""
-
-import torch
-from transformers import pipeline
 from typing import List, Dict, Any
 import time
+
 from app.utils.logger import get_logger
 
 logger = get_logger(__name__)
@@ -14,21 +11,29 @@ class MLService:
     def __init__(self, model_name: str = "distilbert-base-uncased-finetuned-sst-2-english"): 
         """
         Initialize the ML service.
-       
-        HERE IS THE MODEL REFERENCE: https://huggingface.co/docs/transformers/en/model_doc/distilbert?usage=Pipeline    
-        
-        Args:
-            model_name: HuggingFace model name
         """ 
         self.model_name = model_name
-        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         self.classifier = None
-        logger.info(f"Initializing MLService with model: {model_name} on device: {self.device}")
+        self._device_cache = None
+        logger.info(f"MLService initialized (lazy-loading enabled for {model_name})")
+
+    @property
+    def device(self):
+        """Lazy-loaded device info."""
+        if self._device_cache is None:
+            try:
+                import torch
+                self._device_cache = "cuda" if torch.cuda.is_available() else "cpu"
+            except ImportError:
+                self._device_cache = "cpu"
+        return self._device_cache
             
     def load_model(self):
         """Load the model if not already loaded."""
         if self.classifier is None:
             try:
+                from transformers import pipeline
+                logger.info(f"Loading ML model: {self.model_name} on {self.device}")
                 self.classifier = pipeline(
                     "sentiment-analysis",
                     model=self.model_name,

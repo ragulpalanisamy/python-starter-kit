@@ -48,7 +48,10 @@ class Settings(BaseSettings):
     
     # MongoDB settings
     MONGODB_URI: str
-    DATABASE_NAME: str
+    DATABASE_NAME: str = "sample_mflix"
+    
+    # ML settings
+    ENABLE_ML: bool = True
     
     # Logging
     LOG_LEVEL: str = "INFO"
