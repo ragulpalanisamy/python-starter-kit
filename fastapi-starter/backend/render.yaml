@@ -11,6 +11,9 @@ services:
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.12
-      - key: DATABASE_URL
+      - key: MONGODB_URI
         sync: false
         description: "MongoDB Connection String"
+      - key: DATABASE_NAME
+        sync: false
+        description: "MongoDB Database Name"
