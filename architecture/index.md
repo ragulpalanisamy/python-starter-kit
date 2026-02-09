@@ -12,7 +12,7 @@
 | 01   | **Operators**           | [View Guide](./01_operators/index.md)          | [Explore Code](../starter_kit/01_operators/)          |
 | 02   | **Strings**             | [View Guide](./02_strings/index.md)            | [Explore Code](../starter_kit/02_strings/)            |
 | 03   | **Type Casting**        | [View Guide](./03_type_check_casting/index.md) | [Explore Code](../starter_kit/03_type_check_casting/) |
-| 04   | **User Input**          | [View Guide](./04_input/index.md)              | [Explore Code](../starter_kit/04_input/)              |
+| 04   | **User Input**          | [View Guide](./04_input/indexx.md)             | [Explore Code](../starter_kit/04_input/)              |
 | 05   | **Variable Scope**      | [View Guide](./05_variable_scope/index.md)     | [Explore Code](../starter_kit/05_variable_scope/)     |
 | 06   | **Control Flow**        | [View Guide](./06_control_flow/index.md)       | [Explore Code](../starter_kit/06_control_flow/)       |
 | 07   | **Functions**           | [View Guide](./07_functions/index.md)          | [Explore Code](../starter_kit/07_functions/)          |
