@@ -26,10 +26,13 @@ async def lifespan(app: FastAPI):
         logger.error(f"Failed to connect to MongoDB: {e}")
 
     # Pre-load ML model
-    try:
-        ml_service.load_model()
-    except Exception as e:
-        logger.error(f"Failed to pre-load ML model: {e}")
+    if settings.ENABLE_ML:
+        try:
+            ml_service.load_model()
+        except Exception as e:
+            logger.error(f"Failed to pre-load ML model: {e}")
+    else:
+        logger.info("ML model pre-loading skipped (ENABLE_ML=False)")
     
     yield
     

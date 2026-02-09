@@ -15,5 +15,6 @@ services:
         sync: false
         description: "MongoDB Connection String"
       - key: DATABASE_NAME
-        sync: false
-        description: "MongoDB Database Name"
+        value: sample_mflix
+      - key: ENABLE_ML
+        value: false
