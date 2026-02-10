@@ -1,13 +1,151 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Character Encoding -->
     <meta charset="UTF-8" />
+
+    <!-- Viewport Configuration -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <!-- Primary Meta Tags -->
+    <title>FastAPI Starter - Modern Web Application Dashboard</title>
+    <meta name="title" content="FastAPI Starter - Modern Web Application Dashboard" />
+    <meta
+      name="description"
+      content="A modern, full-stack web application built with FastAPI and React. Manage movies, theaters, comments, and ML-powered analytics with an intuitive dashboard interface."
+    />
+    <meta
+      name="keywords"
+      content="FastAPI, React, TypeScript, Web Application, Dashboard, Movies, Analytics, Machine Learning"
+    />
+    <meta name="author" content="Ragul Palanisamy" />
+    <meta name="application-name" content="FastAPI Starter" />
+    <meta name="generator" content="Vite + React + TypeScript" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+
+    <!-- Additional Description and Author Meta Tags -->
+    <meta name="subject" content="Web Application Dashboard" />
+    <meta name="copyright" content="Ragul Palanisamy" />
+    <meta name="designer" content="Ragul Palanisamy" />
+    <meta name="reply-to" content="ragulpalanisamy1001@gmail.com" />
+    <meta name="owner" content="Ragul Palanisamy" />
+    <meta name="category" content="Web Application, Dashboard, Analytics" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="msapplication-TileColor" content="#000000" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-domain.vercel.app/" />
+    <meta property="og:title" content="FastAPI Starter - Modern Web Application Dashboard" />
+    <meta
+      property="og:description"
+      content="A modern, full-stack web application built with FastAPI and React. Manage movies, theaters, comments, and ML-powered analytics with an intuitive dashboard interface."
+    />
+    <meta property="og:image" content="https://your-domain.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="FastAPI Starter Dashboard" />
+    <meta property="og:site_name" content="FastAPI Starter" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://your-domain.vercel.app/" />
+    <meta name="twitter:title" content="FastAPI Starter - Modern Web Application Dashboard" />
+    <meta
+      name="twitter:description"
+      content="A modern, full-stack web application built with FastAPI and React. Manage movies, theaters, comments, and ML-powered analytics with an intuitive dashboard interface."
+    />
+    <meta name="twitter:image" content="https://your-domain.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="FastAPI Starter Dashboard" />
+    <meta name="twitter:creator" content="@ragulpalanisamy" />
+    <meta name="twitter:site" content="@ragulpalanisamy" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Preconnect to External Domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://vitals.vercel-insights.com" />
+
+    <!-- Security Headers -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://vercel.live https://vitals.vercel-insights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' https://vitals.vercel-insights.com https://vercel.live;"
+    />
+
+    <!-- Performance Hints -->
+    <link rel="preload" href="/src/main.tsx" as="script" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-domain.vercel.app/" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "FastAPI Starter",
+        "description": "A modern, full-stack web application built with FastAPI and React. Manage movies, theaters, comments, and ML-powered analytics with an intuitive dashboard interface.",
+        "url": "https://your-domain.vercel.app/",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Any",
+        "softwareVersion": "1.0.0",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "FastAPI Starter Team",
+          "url": "https://your-domain.vercel.app/",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "contact@your-domain.com"
+          }
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "FastAPI Starter Team"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": "Web Application Dashboard",
+          "description": "A comprehensive dashboard for managing movies, theaters, comments, and ML-powered analytics"
+        }
+      }
+    </script>
   </head>
   <body>
+    <noscript>
+      <div style="padding: 20px; text-align: center; background-color: #f0f0f0; color: #333">
+        <h1>JavaScript Required</h1>
+        <p>This application requires JavaScript to run. Please enable JavaScript in your browser settings.</p>
+      </div>
+    </noscript>
+
     <div id="root"></div>
+
+    <!-- Main Application Script -->
     <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Vercel Analytics -->
+    <script>
+      // Vercel Analytics will be initialized in main.tsx
+    </script>
   </body>
 </html>
