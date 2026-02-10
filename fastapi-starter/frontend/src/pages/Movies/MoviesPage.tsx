@@ -40,13 +40,8 @@ export const MoviesPage = () => {
 
       <Card className="bg-white/5 border-slate-700/20 backdrop-blur-xl shadow-2xl overflow-hidden rounded-lg">
         <CardBody className="p-2 relative min-h-[400px]">
-          {isFetching && (
-            <div className="absolute inset-0 flex items-center justify-center bg-slate-950/30 backdrop-blur-sm z-10 rounded-lg">
-              <LoadingSpinner size="md" />
-            </div>
-          )}
-          <div className={isFetching ? "opacity-50 pointer-events-none" : ""}>
-            {isLoading ? (
+          <div className={isFetching || isLoading ? "opacity-50 pointer-events-none" : ""}>
+            {isLoading || isFetching ? (
               <div className="flex items-center justify-center py-16">
                 <LoadingSpinner size="lg" label="Loading movies..." />
               </div>
