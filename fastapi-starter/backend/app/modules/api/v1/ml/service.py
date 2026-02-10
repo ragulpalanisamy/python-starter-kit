@@ -5,6 +5,8 @@ from app.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+from app.config.settings import settings
+
 class MLService:
     """Service for running ML predictions."""
     
@@ -15,11 +17,18 @@ class MLService:
         self.model_name = model_name
         self.classifier = None
         self._device_cache = None
-        logger.info(f"MLService initialized (lazy-loading enabled for {model_name})")
+        
+        if settings.ENABLE_ML:
+            logger.info(f"MLService initialized (lazy-loading enabled for {model_name})")
+        else:
+            logger.info(f"MLService initialized in DISABLED mode (ENABLE_ML=False)")
 
     @property
     def device(self):
         """Lazy-loaded device info."""
+        if not settings.ENABLE_ML:
+            return "cpu"
+            
         if self._device_cache is None:
             try:
                 import torch
@@ -30,6 +39,10 @@ class MLService:
             
     def load_model(self):
         """Load the model if not already loaded."""
+        if not settings.ENABLE_ML:
+            logger.warning("Attempted to load ML model while ENABLE_ML is False")
+            return
+
         if self.classifier is None:
             try:
                 from transformers import pipeline
@@ -54,6 +67,9 @@ class MLService:
         Returns:
             Prediction result
         """
+        if not settings.ENABLE_ML:
+            raise RuntimeError("ML service is disabled (ENABLE_ML=False)")
+
         if self.classifier is None:
             self.load_model()
             
@@ -79,6 +95,9 @@ class MLService:
         Returns:
             List of prediction results
         """
+        if not settings.ENABLE_ML:
+            raise RuntimeError("ML service is disabled (ENABLE_ML=False)")
+
         if self.classifier is None:
             self.load_model()
             
@@ -103,7 +122,8 @@ class MLService:
         """Get model information."""
         return {
             "model_name": self.model_name,
-            "device": self.device,
+            "enabled": settings.ENABLE_ML,
+            "device": self.device if settings.ENABLE_ML else "none",
             "framework": "PyTorch",
             "task": "sentiment-analysis"
         }
