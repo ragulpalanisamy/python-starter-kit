@@ -1,4 +1,4 @@
-# 🚀 FastAPI Starter
+# 🚀 FastAPI Backend
 
 > **Modern Python REST API with FastAPI and UV Package Manager**
 
@@ -24,7 +24,7 @@ A production-ready Python API demonstrating best practices with FastAPI and exte
 ## 📁 Project Structure
 
 ```
-fastapi-ml-starter/
+backend/
 ├── pyproject.toml           # Dependencies (like package.json)
 ├── app/
 │   ├── main.py              # ⭐ Entry point
@@ -56,7 +56,7 @@ uv --version
 ### 2. Install Dependencies
 
 ```bash
-cd fastapi-ml-starter
+cd backend
 uv sync
 ```
 
