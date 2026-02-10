@@ -14,17 +14,17 @@ A beginner-friendly Python starter kit for learning and practicing Python progra
 ```
 python-starter-kit/
 ├── starter_kit/           # Basic Python learning
-│   ├── __init__.py
-│   └── operations.py
-├── fastapi-starter/       # FastAPI REST API project
-│   ├── app/              # Application code
-│   ├── tests/            # API tests
-│   └── pyproject.toml    # Dependencies
-├── architecture/         # Learning resources
+│   ├── tests/             # Tests for operations
+│   ├── examples/          # Example scripts
+│   ├── operations.py
+│   └── __init__.py
+├── fastapi-starter/       # Full-stack FastAPI + React project
+│   ├── backend/           # FastAPI REST API
+│   ├── frontend/          # React + Tailwind Frontend
+│   └── architecture/      # Specific architecture docs
+├── architecture/         # General learning resources
 │   ├── python-basics/    # Python fundamentals
 │   └── fastapi-rest-api/ # FastAPI architecture
-├── tests/                # Tests for starter_kit
-├── examples/             # Example scripts
 └── README.md            # This file
 ```
 
@@ -32,29 +32,27 @@ python-starter-kit/
 
 ## 🚀 Quick Start
 
-### 1. Setup Virtual Environment
+### 1. Install UV Package Manager
 
 ```bash
-# Create virtual environment
-python -m venv venv
+# macOS/Linux
+brew install uv
 
-# Activate it
-source venv/bin/activate  # macOS/Linux
-# or
-venv\Scripts\activate     # Windows
+# Windows
+powershell -c "irmo https://astral.sh/uv/install.ps1 | iex"
 ```
 
-### 2. Install Dependencies (Optional)
+### 2. Setup & Run
 
 ```bash
-pip install -r requirements.txt
-```
+# Navigate to starter kit
+cd starter_kit
 
-### 3. Run Examples
+# Sync dependencies (uses UV)
+uv sync
 
-```bash
-# Run the example
-python examples/basic_operations.py
+# Run an example
+uv run examples/basic_operations.py
 ```
 
 ### 4. Try It Yourself
@@ -77,12 +75,12 @@ print(multiply(4, 7))   # Output: 28
 - **`operations.py`** - Basic math functions (add, subtract, multiply, divide)
 - **`__init__.py`** - Makes it importable as a package
 
-### `tests/` - Test Your Code
+### `starter_kit/tests/` - Test Your Code
 
 - **`test_operations.py`** - Tests to make sure code works correctly
-- Run with: `pytest` (install with `pip install pytest`)
+- Run with: `uv run pytest`
 
-### `examples/` - Learn by Example
+### `starter_kit/examples/` - Learn by Example
 
 - **`basic_operations.py`** - Shows how to use the functions
 
@@ -108,17 +106,18 @@ print(multiply(4, 7))   # Output: 28
 
 1. **Read the architecture docs** → `architecture/python-basics/index.md`
 2. **Study the code** → `starter_kit/operations.py`
-3. **Run the example** → `python examples/basic_operations.py`
+3. **Run the example** → `cd starter_kit && uv run examples/basic_operations.py`
 4. **Try writing your own function** → Add to `starter_kit/operations.py`
-5. **Write tests** → Add to `tests/test_operations.py`
+5. **Write tests** → Add to `starter_kit/tests/test_operations.py`
 
-### Intermediate: FastAPI REST API
+### Intermediate: FastAPI + React Full-stack
 
 1. **Read FastAPI architecture** → `architecture/fastapi-rest-api/index.md`
 2. **Explore the project** → `cd fastapi-starter`
-3. **Run the API** → `uv run uvicorn app.main:app --reload`
-4. **Try the API docs** → http://localhost:8000/docs
-5. **Build your own endpoints** → Follow the patterns in `app/routes/`
+3. **Run the Backend** → `cd backend && uv run uvicorn app.main:app --reload`
+4. **Run the Frontend** → `cd frontend && npm run dev`
+5. **Try the API docs** → http://localhost:8000/docs
+6. **Build your own features** → Follow the patterns in `backend/app/routes/` and `frontend/src/`
 
 ---
 
@@ -152,45 +151,46 @@ print(multiply(4, 7))   # Output: 28
 
 Simple Python package for learning fundamentals
 
-### 2. **fastapi-starter/** - REST API
+### 2. **fastapi-starter/** - Full-stack App
 
-Production-ready FastAPI application with:
+Production-ready FastAPI application with React frontend:
 
-- Health check endpoints
-- External API integration (JSONPlaceholder, Open-Meteo)
-- Clean architecture pattern
-- Comprehensive tests
-- Auto-generated documentation
+- **Backend**: Health check, External API integration, Clean architecture
+- **Frontend**: Modern React, Tailwind CSS, Redux/API integration
+- **Deployment**: Ready for Render (see `backend/render.yaml`)
+- **Documentation**: Auto-generated Swagger docs
 
 ---
 
 ## 🔧 Common Commands
 
-### Python Basics
+### Python Basics (`starter_kit/`)
 
 ```bash
-# Activate virtual environment
-source venv/bin/activate
+# Navigate to starter kit
+cd starter_kit
+
+# Sync dependencies
+uv sync
 
 # Run example
-python examples/basic_operations.py
+uv run examples/basic_operations.py
 
-# Run tests (install pytest first)
-pip install pytest
-pytest
+# Run tests
+uv run pytest
 
 # Use Python interactive shell
-python
->>> from starter_kit.operations import add
+uv run python
+>>> from operations import add
 >>> add(5, 3)
 8
 ```
 
-### FastAPI Project
+### FastAPI Project (`fastapi-starter/`)
 
 ```bash
-# Navigate to project
-cd fastapi-starter
+# Navigate to backend
+cd fastapi-starter/backend
 
 # Install dependencies
 uv sync
@@ -198,11 +198,14 @@ uv sync
 # Run development server
 uv run uvicorn app.main:app --reload
 
-# Access API documentation
-# Open http://localhost:8000/docs in browser
+# Navigate to frontend
+cd ../frontend
 
-# Run tests
-uv run pytest
+# Install dependencies
+npm install
+
+# Run frontend
+npm run dev
 ```
 
 ---

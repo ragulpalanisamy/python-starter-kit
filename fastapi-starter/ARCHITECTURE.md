@@ -34,35 +34,38 @@ External API / Database
 
 ## Project Structure
 
+This project is divided into two main parts: a **FastAPI Backend** and a **React Frontend**.
+
+### 1. Backend (`backend/`)
+
 ```
-app/
-├── main.py              # FastAPI app initialization
-├── config.py            # Configuration (env variables)
-│
-├── routes/              # Route definitions
-│   ├── health.py        # Health check endpoints
-│   └── external_api.py  # External API routes
-│
-├── controllers/         # Request handlers
-│   ├── health_controller.py
-│   └── external_controller.py
-│
-├── services/            # Business logic
-│   └── external_api_service.py
-│
-├── helpers/             # Utilities
-│   ├── logger.py        # Logging
-│   └── http_client.py   # HTTP client
-│
-└── middleware/          # Middleware
-    └── error_handler.py # Global error handling
+backend/
+├── app/              # FastAPI application logic
+│   ├── main.py       # Initialization
+│   ├── routes/       # API endpoints
+│   ├── controllers/  # Request handlers
+│   ├── services/     # Business logic
+│   └── helpers/      # Utilities
+└── tests/            # Pytest suite
+```
+
+### 2. Frontend (`frontend/`)
+
+```
+frontend/
+├── src/
+│   ├── components/   # UI components
+│   ├── pages/        # Views
+│   ├── services/     # RTK Query API slices
+│   └── App.tsx       # Routing
+└── tailwind.config.ts # Styling
 ```
 
 ---
 
 ## Layer Responsibilities
 
-### 1. Routes (`app/routes/`)
+### 1. Routes (`backend/app/routes/`)
 
 **Purpose**: Define API endpoints and validate requests
 
@@ -87,7 +90,7 @@ async def health_check():
 
 ---
 
-### 2. Controllers (`app/controllers/`)
+### 2. Controllers (`backend/app/controllers/`)
 
 **Purpose**: Handle HTTP requests and responses
 
@@ -109,7 +112,7 @@ async def get_health():
 
 ---
 
-### 3. Services (`app/services/`)
+### 3. Services (`backend/app/services/`)
 
 **Purpose**: Business logic and external integrations
 
@@ -130,7 +133,7 @@ class ExternalAPIService:
 
 ---
 
-### 4. Helpers (`app/helpers/`)
+### 4. Helpers (`backend/app/helpers/`)
 
 **Purpose**: Reusable utility functions
 
@@ -149,7 +152,7 @@ async def get(url: str):
 
 ---
 
-### 5. Middleware (`app/middleware/`)
+### 5. Middleware (`backend/app/middleware/`)
 
 **Purpose**: Request/response processing
 

@@ -1,73 +1,96 @@
-# React + TypeScript + Vite
+# 💻 React + TypeScript Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Modern Frontend with React, Vite, and Tailwind CSS**
 
-Currently, two official plugins are available:
+The user-facing side of the FastAPI starter project, built for speed and type safety.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[![React](https://img.shields.io/badge/React-18-blue.svg)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue.svg)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6-purple.svg)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+✅ **Fast Development** - Vite for near-instant HMR (Hot Module Replacement)  
+✅ **Type Safety** - Fully typed components and API interactions  
+✅ **Responsive Design** - Built with Tailwind CSS  
+✅ **State Management** - Redux Toolkit (RTK Query) for API integration  
+✅ **UI Components** - Modern, accessible components (Radix UI / Shadcn UI pattern)  
+✅ **Icons** - Beautiful icons from Lucide React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📁 Project Structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+frontend/
+├── src/
+│   ├── assets/       # Static assets (images, fonts)
+│   ├── components/   # Reusable UI components
+│   ├── layout/       # Page layouts
+│   ├── pages/        # Application views/screens
+│   ├── services/     # API services and Redux slices
+│   ├── styles/       # Global CSS and Tailwind directives
+│   └── App.tsx       # Root component and Routing
+├── index.html        # Entry point
+└── package.json      # Node dependencies
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Quick Start
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. Install Dependencies
+
+```bash
+cd frontend
+npm install
 ```
+
+### 2. Configure Environment
+
+Create a `.env` file in the `frontend` root:
+
+```env
+VITE_API_URL=http://localhost:8000
+```
+
+### 3. Run Development Server
+
+```bash
+npm run dev
+```
+
+The app will be available at: **http://localhost:5173**
+
+---
+
+## 🧪 Common Commands
+
+```bash
+npm install        # Install packages
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run lint       # Run ESLint
+npm run preview    # Preview production build locally
+```
+
+---
+
+## 💡 Frontend-Backend Integration
+
+This frontend is designed to interact with the FastAPI backend. It uses **RTK Query** for efficient data fetching, caching, and state management.
+
+See `src/services/apiSlice.ts` for the base configuration.
+
+---
+
+## 👤 Author
+
+**Ragul P** - [@ragulpalanisamy](https://github.com/ragulpalanisamy)
+
+---
+
+_Happy Coding! 🚀_
