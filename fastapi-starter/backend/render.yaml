@@ -7,7 +7,8 @@ services:
     runtime: python
     rootDir: fastapi-starter/backend
     buildCommand: pip install uv && uv sync
-    startCommand: uv run uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    # Optimized for Free Tier (512MB RAM)
+    startCommand: uv run --active uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.10.12
@@ -17,4 +18,4 @@ services:
       - key: DATABASE_NAME
         value: sample_mflix
       - key: ENABLE_ML
-        value: false
+        value: false # CRITICAL: Keep false on Free Tier to avoid OOM

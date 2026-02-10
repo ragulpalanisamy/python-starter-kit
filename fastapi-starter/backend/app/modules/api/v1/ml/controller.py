@@ -9,6 +9,8 @@ from app.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+from app.config.settings import settings
+
 class MLController:
     """Controller for ML prediction endpoints."""
     
@@ -18,6 +20,9 @@ class MLController:
 
     async def predict_sentiment(self, text: str) -> Dict[str, Any]:
         """Predict sentiment for a single text."""
+        if not settings.ENABLE_ML:
+            raise HTTPException(status_code=503, detail="ML service is disabled (ENABLE_ML=False)")
+            
         if self.ml_service is None:
             raise HTTPException(status_code=503, detail="ML service not available")
         
@@ -55,6 +60,9 @@ class MLController:
 
     async def batch_predict_sentiment(self, texts: List[str]) -> Dict[str, Any]:
         """Predict sentiment for multiple texts."""
+        if not settings.ENABLE_ML:
+            raise HTTPException(status_code=503, detail="ML service is disabled (ENABLE_ML=False)")
+
         if self.ml_service is None:
             raise HTTPException(status_code=503, detail="ML service not available")
         
@@ -101,6 +109,13 @@ class MLController:
 
     async def get_model_info(self) -> Dict[str, Any]:
         """Get ML model information."""
+        if not settings.ENABLE_ML:
+             return {
+                "model_name": "disabled",
+                "enabled": False,
+                "message": "ML features are currently disabled"
+            }
+
         if self.ml_service is None:
             raise HTTPException(status_code=503, detail="ML service not available")
         
@@ -112,6 +127,13 @@ class MLController:
 
     async def ml_health_check(self) -> Dict[str, Any]:
         """Check ML service health."""
+        if not settings.ENABLE_ML:
+            return {
+                "status": "disabled",
+                "model_loaded": False,
+                "message": "ML features are disabled via configuration"
+            }
+
         if self.ml_service is None:
             return {
                 "status": "unhealthy",
