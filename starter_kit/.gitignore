@@ -64,3 +64,5 @@ dmypy.json
 
 # Logs
 *.log
+
+.DS_Store

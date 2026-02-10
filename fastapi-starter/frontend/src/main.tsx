@@ -1,6 +1,8 @@
 import { HeroUIProvider } from "@heroui/react";
 import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { store } from "./store";
 import App from "./App";
 import "./index.css";
@@ -17,5 +19,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         </div>
       </HeroUIProvider>
     </Provider>
+    <Analytics />
+    <SpeedInsights />
   </React.StrictMode>
 );
