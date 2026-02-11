@@ -84,49 +84,29 @@
 
 ---
 
-## 💡 Key Points
-
-```
-✅ Python = Compiler + Interpreter (hybrid)
-✅ Bytecode = Platform-independent (works anywhere)
-✅ PVM = Translates bytecode to machine code
-✅ Two phases = Compile time + Runtime
-```
-
 ---
 
-## 🔍 Quick Comparison
+## ⚡ Modes of Execution
 
-| Feature       | Traditional (C/C++)  | Python                  |
-| ------------- | -------------------- | ----------------------- |
-| **Steps**     | 1 (Direct compile)   | 2 (Compile → Interpret) |
-| **Output**    | Machine code         | Bytecode → Machine code |
-| **Portable?** | ❌ Platform-specific | ✅ Cross-platform       |
-| **Speed**     | ⚡ Faster            | 🐢 Slower (but easier)  |
+Python allows you to run code in two primary ways:
 
----
+### 1. Interactive Mode (REPL)
 
-## 🌍 Platform Independent
+- **What it is:** A "Read-Eval-Print Loop" where you type code and see results immediately.
+- **How to use:** Type `python` in your terminal.
+- **Best for:** Testing small snippets, debugging, and learning.
+- **Example:**
+  ```python
+  >>> x = 10
+  >>> print(x * 2)
+  20
+  ```
 
-**Write Once, Run Anywhere!**
+### 2. Script Mode
 
-![Platform Independence](platform.png)
-
-### How It Works
-
-```
-Same Python Code (.py)
-         ↓
-   Same Bytecode (.pyc)
-         ↓
-    ┌────┴────┬────────┬────────┐
-    ↓         ↓        ↓        ↓
-  Windows   macOS   Linux   Any OS
-    ↓         ↓        ↓        ↓
-  Intel     ARM      AMD    Any CPU
-    ↓         ↓        ↓        ↓
-   ✅ Works  ✅ Works ✅ Works ✅ Works
-```
+- **What it is:** Writing code in a `.py` file and running the entire file at once.
+- **How to use:** `python filename.py`
+- **Best for:** Building applications, automation scripts, and larger projects.
 
 **Key Benefit:** Python bytecode runs on any OS/Processor with Python installed!
 

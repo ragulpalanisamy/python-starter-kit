@@ -368,6 +368,47 @@ if (age >= 18 and has_license) or is_instructor:
 
 ---
 
+---
+
+## 💬 Python Comments
+
+Comments are notes used by developers to explain code. They are ignored by the Python interpreter.
+
+### 1. Single-line Comment
+
+Use the hash symbol `#`.
+
+```python
+# This is a single-line comment
+x = 5  # You can also add comments at the end of a line
+```
+
+### 2. Multi-line Comment
+
+Python doesn't have a specific symbol for multi-line comments, but you can use multiple `#` or a triple-quoted string (docstring) if it's not assigned to a variable.
+
+```python
+# This is a
+# multi-line
+# comment
+"""
+This is often used as a
+multi-line comment or docstring
+"""
+```
+
+### 3. Docstrings
+
+Used to document functions, classes, and modules.
+
+```python
+def add(a, b):
+    """This function adds two numbers."""
+    return a + b
+```
+
+---
+
 ## Summary
 
 | Category       | Operators                           | Purpose            |
@@ -387,3 +428,7 @@ if (age >= 18 and has_license) or is_instructor:
 - Logical operators: `and` requires both, `or` requires at least one
 - Assignment operators (`+=`, `-=`) are shortcuts for common operations
 - Use parentheses to make operator precedence clear
+
+---
+
+[⬅️ Back to Learning Path](../index.md)
